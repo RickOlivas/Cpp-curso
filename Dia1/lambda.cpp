@@ -10,17 +10,24 @@ function sum(a){
 
 sum(5)(3)
 */
+/*
 auto lambda = [](auto a, auto b) { return a + b; };
 auto clousure (int x){
     return (sum())
 }
-int sum (int a){
-    
-    return a + b;
+*/
+auto sum (int a){  
+    return[a](int b){
+        return a +b;
+        };
 }
+
 
 int main()
 {
-    auto puntero_f= sum;
+    auto result = sum(5);
+    int a = result(100);
+    int b = result(30);
+    std::cout << a << " " << b << std::endl;
 
 }

@@ -9,13 +9,24 @@ crear una funcion que solo imprima las que vuelan*/
 
 using namespace std;
 
+
+
 class Ave {
     protected:
     int peso;
 public:
     Ave(int peso) : peso(peso){};
     int getPeso(){return peso;}
-	virtual void printAves() { std::cout << "Hola Aves" << std::endl; }
+	virtual void printAves() = 0;
+
+};
+
+class AveNoVoladora: public Ave {
+    protected:
+
+public:
+    AveNoVoladora(int peso) : Ave(peso) {}
+	virtual void printAves() { std::cout << "Hola Aves que no vuelan" << std::endl; }
 
 };
 class AveVoladora: public Ave {
@@ -24,12 +35,13 @@ class AveVoladora: public Ave {
 public:
     AveVoladora(int peso, int velocidad) : Ave(peso), velocidad(velocidad){}
     int getVelocidad(){return velocidad;}
-	virtual void printAvesVol() { std::cout << "Hola voladoras" << std::endl; }
+	virtual void printAves() { std::cout << "Hola voladoras" << std::endl; }
 };
 int main()
 {
-	Ave pingu(5);
+	AveNoVoladora pingu(5);
     AveVoladora aguila(10,100);
     pingu.printAves();
-    aguila.printAvesVol();
+    aguila.printAves();
+    cout << "Pinguino datos: " << pingu.getPeso() << " Aguila datos: "<< aguila.getPeso()<< " " << aguila.getVelocidad() << endl;
 }
