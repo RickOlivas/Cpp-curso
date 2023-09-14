@@ -16,8 +16,8 @@ public:
 	Punto operator-(Punto &p) {
 		return Punto(x - p.x, y - p.y);
 	}
-    (const Punto& p){
-        return (x == p.x && y ==p.y)bool operator==;
+    bool operator==(const Punto& p){
+        return (x == p.x && y ==p.y);
     }
 };
 //MiEntero operator+(const MiEntero& e1, const MiEntero& e2) {

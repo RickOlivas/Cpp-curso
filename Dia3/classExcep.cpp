@@ -6,7 +6,7 @@ int main()
 {
 	try
 	{
-		std::exception e();
+		std::exception e('A');
 		throw e;
 	}
 	catch (std::exception &cException)
@@ -14,3 +14,5 @@ int main()
 		std::cerr << "Mensaje de exception: " << cException.what() << std::endl;
 	}
 }
+
+//NO FUNCIONA VER POR QUÉ
